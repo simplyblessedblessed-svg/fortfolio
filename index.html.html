@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Sheindrhico Rhey G Castro - Developer and Creative Professional">
+    <title>Sheindrhico Rhey G Castro - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #d9f0f5;
+            color: #1a3942;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(217, 240, 245, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #a8d5e2;
+            z-index: 1000;
+            padding: 1rem 2rem;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #4db8d8;
+            cursor: pointer;
+            border: none;
+            background: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            transition: background-color 0.3s;
+        }
+
+        .logo:hover {
+            background-color: rgba(77, 184, 216, 0.1);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #1a3942;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            transition: background-color 0.3s;
+        }
+
+        .nav-links a:hover {
+            background-color: rgba(77, 184, 216, 0.1);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #1a3942;
+        }
+
+        /* Sections */
+        section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #1a3942;
+            margin-bottom: 2rem;
+            min-height: 5rem;
+        }
+
+        h2 {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #1a3942;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        /* Hero Section */
+        #home {
+            background: linear-gradient(to bottom right, rgba(77, 184, 216, 0.1), #d9f0f5, #f5fbfc);
+            text-align: center;
+            padding-top: 8rem;
+        }
+
+        .typewriter-container {
+            display: inline-block;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 3px;
+            height: 5rem;
+            background-color: #4db8d8;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+            animation: blink 0.53s infinite;
+        }
+
+        @keyframes blink {
+            0%, 49% { opacity: 1; }
+            50%, 100% { opacity: 0; }
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: #4a6a7a;
+            margin-top: 1rem;
+        }
+
+        .scroll-indicator {
+            margin-top: 3rem;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+        }
+
+        .scroll-indicator svg {
+            width: 2rem;
+            height: 2rem;
+            color: #4db8d8;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* About Section */
+        #about {
+            background-color: #d9f0f5;
+        }
+
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .profile-img {
+            width: 12rem;
+            height: 12rem;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #4db8d8;
+        }
+
+        .about-text {
+            max-width: 48rem;
+        }
+
+        .about-text p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: #1a3942;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Projects Section */
+        #projects {
+            background-color: #f5fbfc;
+            overflow: hidden;
+        }
+
+        .projects-container {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .projects-scroll {
+            display: flex;
+            gap: 2rem;
+            animation: scroll 20s linear infinite;
+        }
+
+        .projects-scroll:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-22rem * 4)); }
+        }
+
+        .project-card {
+            flex-shrink: 0;
+            width: 20rem;
+            height: 16rem;
+            background-color: #ffffff;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-card h3 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1a3942;
+            margin-bottom: 0.75rem;
+        }
+
+        .project-card p {
+            color: #4a6a7a;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .project-tag {
+            padding: 0.25rem 0.75rem;
+            background-color: rgba(77, 184, 216, 0.1);
+            color: #4db8d8;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+        }
+
+        /* Contact Section */
+        #contact {
+            background-color: #d9f0f5;
+            text-align: center;
+        }
+
+        .contact-intro {
+            font-size: 1.125rem;
+            color: #4a6a7a;
+            margin-bottom: 3rem;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.125rem;
+            color: #4db8d8;
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            transition: background-color 0.3s;
+        }
+
+        .contact-link:hover {
+            background-color: rgba(77, 184, 216, 0.1);
+        }
+
+        .contact-link svg {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+
+        footer {
+            margin-top: 6rem;
+            font-size: 0.875rem;
+            color: #4a6a7a;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: rgba(217, 240, 245, 0.95);
+                flex-direction: column;
+                padding: 1rem;
+                border-bottom: 1px solid #a8d5e2;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            h1 {
+                font-size: 2rem;
+                min-height: 3rem;
+            }
+
+            .cursor {
+                height: 3rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .project-card {
+                width: 16rem;
+            }
+
+            @keyframes scroll {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(calc(-18rem * 4)); }
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <button class="logo" onclick="scrollToSection('home')">SRC</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" onclick="closeMenu()">Home</a></li>
+                <li><a href="#about" onclick="closeMenu()">About Me</a></li>
+                <li><a href="#projects" onclick="closeMenu()">Projects</a></li>
+                <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+            </ul>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home">
+        <div class="container">
+            <h1>
+                <span class="typewriter-container">
+                    <span id="typewriter"></span>
+                    <span class="cursor" id="cursor"></span>
+                </span>
+            </h1>
+            <p class="subtitle">Developer & Creative Professional</p>
+            <div class="scroll-indicator" onclick="scrollToSection('about')">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <img src="attached_assets/image_1761979455003.png" alt="Sheindrhico Rhey G Castro" class="profile-img">
+                <div class="about-text">
+                    <p>Hi! I'm a beginner developer just starting my coding journey. I'm excited to learn and build simple projects with HTML, CSS, and JavaScript.</p>
+                    <p>Every day I'm learning something new, from creating basic login forms to writing my first "Hello World" programs. It's challenging but really fun!</p>
+                    <p>I'm looking forward to growing my skills and creating more projects as I continue learning web development.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="projects-container">
+                <div class="projects-scroll" id="projectsScroll">
+                    <!-- Projects will be repeated here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2>Contact</h2>
+            <p class="contact-intro">Let's connect! Feel free to reach out through email or check out my work on GitHub.</p>
+            <div class="contact-links">
+                <a href="mailto:simplyblessedblessed@gmail.com" class="contact-link">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                    simplyblessedblessed@gmail.com
+                </a>
+                <a href="https://github.com/simplyblessedblessed-svg" target="_blank" class="contact-link">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    https://github.com/simplyblessedblessed-svg
+                </a>
+            </div>
+            <footer>
+                <p>&copy; <span id="year"></span> Sheindrhico Rhey G Castro. All rights reserved.</p>
+            </footer>
+        </div>
+    </section>
+
+    <script>
+        // Typewriter Effect
+        const fullText = 'Hello my name is Sheindrhico Rhey G Castro';
+        let displayedText = '';
+        let currentIndex = 0;
+        let isDeleting = false;
+        const typewriterElement = document.getElementById('typewriter');
+
+        function typeWriter() {
+            if (!isDeleting && currentIndex < fullText.length) {
+                displayedText = fullText.slice(0, currentIndex + 1);
+                typewriterElement.textContent = displayedText;
+                currentIndex++;
+                setTimeout(typeWriter, 80);
+            } else if (!isDeleting && currentIndex === fullText.length) {
+                setTimeout(() => {
+                    isDeleting = true;
+                    typeWriter();
+                }, 2000);
+            } else if (isDeleting && currentIndex > 0) {
+                displayedText = fullText.slice(0, currentIndex - 1);
+                typewriterElement.textContent = displayedText;
+                currentIndex--;
+                setTimeout(typeWriter, 50);
+            } else if (isDeleting && currentIndex === 0) {
+                setTimeout(() => {
+                    isDeleting = false;
+                    typeWriter();
+                }, 500);
+            }
+        }
+
+        typeWriter();
+
+        // Projects Data
+        const projects = [
+            {
+                title: 'Login Form',
+                description: 'Simple and clean login form with validation',
+                tech: ['HTML', 'CSS', 'JavaScript']
+            },
+            {
+                title: 'Hello World',
+                description: 'My first program displaying Hello World',
+                tech: ['JavaScript', 'HTML']
+            },
+            {
+                title: 'CSS Memo',
+                description: 'Collection of useful CSS snippets and notes',
+                tech: ['CSS', 'HTML']
+            },
+            {
+                title: 'Simple Calculator',
+                description: 'Basic calculator with arithmetic operations',
+                tech: ['JavaScript', 'CSS']
+            }
+        ];
+
+        // Create project cards (repeat 3 times for scrolling)
+        const projectsScroll = document.getElementById('projectsScroll');
+        for (let i = 0; i < 3; i++) {
+            projects.forEach(project => {
+                const card = document.createElement('div');
+                card.className = 'project-card';
+                card.innerHTML = `
+                    <div>
+                        <h3>${project.title}</h3>
+                        <p>${project.description}</p>
+                    </div>
+                    <div class="project-tags">
+                        ${project.tech.map(tech => `<span class="project-tag">${tech}</span>`).join('')}
+                    </div>
+                `;
+                projectsScroll.appendChild(card);
+            });
+        }
+
+        // Navigation
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        function closeMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.remove('active');
+        }
+
+        // Set current year
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
